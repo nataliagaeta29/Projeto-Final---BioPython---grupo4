@@ -20,3 +20,24 @@ class Sequencia:
 
     def __getitem__(self, index):
         return self.sequencia.__getitem__(index)
+    
+    def complementar(self):
+        complementar = {
+            'A':'T', 
+            'T':'A', 
+            'C':'G', 
+            'G':'C'
+            }
+        sequencia_complementar = ""
+
+        for base in self.sequencia:
+            sequencia_complementar += complementar[base]
+        return Sequencia(sequencia_complementar)
+
+
+
+
+
+        
+    
+    
