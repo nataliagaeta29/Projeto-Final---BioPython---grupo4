@@ -7,6 +7,9 @@ DNA.reverso_complementar()
 print(DNA.reverso_complementar())
 
 
+DNA.transcrever()
+print(DNA.transcrever())
+
 
 
 

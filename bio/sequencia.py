@@ -48,9 +48,18 @@ class Sequencia:
             reverso_complemento = sequencia_complementar[::-1]
         return Sequencia(reverso_complemento)
 
+    def transcrever(self):
+        transcrito = {
+            'A':'U', 
+            'T':'A', 
+            'C':'G', 
+            'G':'C'
+            }
+        sequencia_transcrita = ""
 
-
-
+        for base in self.sequencia:
+            sequencia_transcrita += transcrito[base]
+        return Sequencia(sequencia_transcrita)
 
 
 
