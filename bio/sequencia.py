@@ -33,6 +33,22 @@ class Sequencia:
         for base in self.sequencia:
             sequencia_complementar += complementar[base]
         return Sequencia(sequencia_complementar)
+    
+    def reverso_complementar(self):
+        complementar = {
+            'A':'T', 
+            'T':'A', 
+            'C':'G', 
+            'G':'C'
+            }
+        sequencia_complementar = ""
+        
+        for base in self.sequencia:
+            sequencia_complementar += complementar[base]
+            reverso_complemento = sequencia_complementar[::-1]
+        return Sequencia(reverso_complemento)
+
+
 
 
 
