@@ -21,6 +21,7 @@ class Sequencia:
     def __getitem__(self, index):
         return self.sequencia.__getitem__(index)
     
+    
     def complementar(self):
         complementar = {
             'A':'T', 
@@ -33,6 +34,7 @@ class Sequencia:
         for base in self.sequencia:
             sequencia_complementar += complementar[base]
         return Sequencia(sequencia_complementar)
+    
     
     def reverso_complementar(self):
         complementar = {
@@ -47,6 +49,7 @@ class Sequencia:
             sequencia_complementar += complementar[base]
             reverso_complemento = sequencia_complementar[::-1]
         return Sequencia(reverso_complemento)
+    
 
     def transcrever(self):
         transcrito = {
@@ -59,10 +62,17 @@ class Sequencia:
 
         for base in self.sequencia:
             sequencia_transcrita += transcrito[base]
-        return Sequencia(sequencia_transcrita)
-
-
-
         
+        return Sequencia(sequencia_transcrita)
     
-    
+
+    def calcular_percentual(self, bases): #Muitas partes pensei sozinha, mas algumas o chatGPT me ajudou galera..
+            comprimento_sequencia = len(self.sequencia)
+            percentual = {}
+        
+            for base in bases:
+                contagem_base = self.sequencia.count(base)
+                percentual[base] = (contagem_base / comprimento_sequencia) * 100
+        
+            return percentual
+        
