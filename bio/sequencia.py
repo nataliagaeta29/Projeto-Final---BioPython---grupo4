@@ -65,14 +65,39 @@ class Sequencia:
         
         return Sequencia(sequencia_transcrita)
     
+    
+    
+    def traduzir(self, parar=True):
+        sequencia_traduzida = ""
 
-    def calcular_percentual(self, bases): #Muitas partes pensei sozinha, mas algumas o chatGPT me ajudou galera..
-            comprimento_sequencia = len(self.sequencia)
-            percentual = {}
+        for i in range(0, len(self.sequencia), 3):
+            codon = self.sequencia[i:i+3]
+            if len(codon) < 3:
+                break
+
+            from bio.constantes import DNA_PARA_AMINOACIDO, DNA_STOP_CODONS
+            if codon in DNA_STOP_CODONS:
+                if parar == False:
+                    break
+                sequencia_traduzida += '*'
+            else:
+                aminoacido = DNA_PARA_AMINOACIDO.get(codon, 'X')
+                sequencia_traduzida += aminoacido
+             
+        return Sequencia(sequencia_traduzida)
+    
+
+
+    def calcular_percentual(self, bases): #Está 1/2 certo.Não está contando todas as bases... Corrigir
+        comprimento_sequencia = len(self.sequencia)
+        percentual = {}
         
-            for base in bases:
-                contagem_base = self.sequencia.count(base)
-                percentual[base] = (contagem_base / comprimento_sequencia) * 100
+        for base in bases:
+            contagem_base = self.sequencia.count(base)
+            percentual[base] = (contagem_base / comprimento_sequencia) * 100
         
-            return percentual
+        return percentual
         
+
+
+
