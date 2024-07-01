@@ -72,8 +72,6 @@ class Sequencia:
 
         for i in range(0, len(self.sequencia), 3):
             codon = self.sequencia[i:i+3]
-            if len(codon) < 3:
-                break
 
             from bio.constantes import DNA_PARA_AMINOACIDO, DNA_STOP_CODONS
             if codon in DNA_STOP_CODONS:
