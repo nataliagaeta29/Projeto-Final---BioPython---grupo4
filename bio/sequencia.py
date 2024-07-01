@@ -67,26 +67,26 @@ class Sequencia:
     
     
     
-    def traduzir(self, parar=True):
+    def traduzir(self, parar=False):
         sequencia_traduzida = ""
 
-        for i in range(0, len(self.sequencia), 3):
+        for i in range(0, len(self.sequencia), 3): #acessar os códons (igual no exercício em sala)
             codon = self.sequencia[i:i+3]
 
-            from bio.constantes import DNA_PARA_AMINOACIDO, DNA_STOP_CODONS
-            if codon in DNA_STOP_CODONS:
-                if parar == False:
+            from bio.constantes import DNA_PARA_AMINOACIDO, DNA_STOP_CODONS #importando informação do módulo
+            if codon in DNA_STOP_CODONS: #Se o códon for um stop codon (True) 
+                if parar == True:
                     break
-                sequencia_traduzida += '*'
+                sequencia_traduzida += '*' #Ele vai parar de add um aa  vai colocar um asterisco
             else:
-                aminoacido = DNA_PARA_AMINOACIDO.get(codon, 'X')
+                aminoacido = DNA_PARA_AMINOACIDO.get(codon, 'X') #para qualquer outra possibilidade, ele vai adicionando os aa
                 sequencia_traduzida += aminoacido
              
         return Sequencia(sequencia_traduzida)
     
 
 
-    def calcular_percentual(self, bases): #Está 1/2 certo.Não está contando todas as bases... Corrigir
+    def calcular_percentual(self, bases): 
         comprimento_sequencia = len(self.sequencia)
         percentual = {}
         
