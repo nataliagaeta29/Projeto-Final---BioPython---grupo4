@@ -8,7 +8,7 @@ print(DNA.complementar())
 DNA.reverso_complementar()
 print(DNA.reverso_complementar())
 
-base_A = DNA.calcular_percentual(bases = ["A", "T", "C", "G"])
+base_A = DNA.calcular_percentual(bases = ["A"])
 print(base_A) 
 
 DNA.transcrever()
