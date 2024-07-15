@@ -51,7 +51,7 @@ class Sequencia:
         return Sequencia(reverso_complemento)
     
 
-    def transcrever(self):
+    def transcrever(self):  
         transcrito = {
             'A':'U', 
             'T':'A', 
@@ -77,7 +77,7 @@ class Sequencia:
             if codon in DNA_STOP_CODONS: #Se o códon for um stop codon (True) 
                 if parar == True:
                     break
-                sequencia_traduzida += '*' #Ele vai parar de add um aa  vai colocar um asterisco
+                sequencia_traduzida += '*' #Ele vai parar de add um aa vai colocar um asterisco
             else:
                 aminoacido = DNA_PARA_AMINOACIDO.get(codon, 'X') #para qualquer outra possibilidade, ele vai adicionando os aa
                 sequencia_traduzida += aminoacido
@@ -94,7 +94,7 @@ class Sequencia:
             contagem_base = self.sequencia.count(base)
             percentual[base] = (contagem_base / comprimento_sequencia) * 100
         
-        return percentual
+        return percentual___
         
 
 
