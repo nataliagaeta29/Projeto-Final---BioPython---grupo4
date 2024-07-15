@@ -94,7 +94,7 @@ class Sequencia:
             contagem_base = self.sequencia.count(base)
             percentual[base] = (contagem_base / comprimento_sequencia) * 100
         
-        return percentual___
+        return percentual
         
 
 
