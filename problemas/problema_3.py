@@ -25,12 +25,12 @@ def ler_fasta(caminho_do_arquivo):
 
 sequences = [OrganismoFasta]
 
-# Especificação da mutação
+# Especificar mutação
 mutacao_posicao = 1000
 nucleotideo_original = 'A'
 nucleotideo_mutado = 'T'
 
-# Função para verificar a mutação
+# Verificar a mutação
 def verificar_mutacao(sequences, pos, original, mutado):
     resultados = []
     for seq in sequences:
@@ -40,7 +40,6 @@ def verificar_mutacao(sequences, pos, original, mutado):
             resultados.append(False)
     return resultados
 
-# Verificando as sequências
+# Analisando as sequências
 resultados = verificar_mutacao(sequences, mutacao_posicao, nucleotideo_original, nucleotideo_mutado)
 print(resultados)
-
