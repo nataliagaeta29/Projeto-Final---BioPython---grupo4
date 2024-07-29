@@ -28,7 +28,7 @@ sequences = [OrganismoFasta]
 # Especificar mutação
 mutacao_posicao = 1000
 nucleotideo_original = 'A'
-nucleotideo_mutado = 'T'
+nucleotideo_mutado = 'G'
 
 # Verificar a mutação
 def verificar_mutacao(sequences, pos, original, mutado):
