@@ -1,8 +1,8 @@
 #Importando as funções
+import os
 from Sequencia import Sequencia
 from OrganismoFasta import OrganismoFasta
 from ler_fasta import ler_fasta
-import os
 
 #Lendo o arquivo
 diretorio_arquivo = os.path.join("arquivos", "Flaviviridae-genomes.fasta")
