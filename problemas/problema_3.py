@@ -1,45 +1,23 @@
-from bio.organismo_fasta import OrganismoFasta
+#Importando as funções
+from Sequencia import Sequencia
+from OrganismoFasta import OrganismoFasta
+from ler_fasta import ler_fasta
+import os
 
+#Lendo o arquivo
+diretorio_arquivo = os.path.join("arquivos", "Flaviviridae-genomes.fasta")
+objetos_organismo = ler_fasta(diretorio_arquivo)
 
-def ler_fasta(caminho_do_arquivo):
-    organismos = []
+#Realizando a função
+for organismo in objetos_organismo:
+    print(f"Organismo: {organismo.id}")
 
-    with open(caminho_do_arquivo) as file:
-        lines = file.readlines()
-        for line in lines:
-            if line[0] == ">":
-                id_organismo, nome = line[1:].rstrip().split("|")
-                organismos.append({
-                    "id": id_organismo.strip(),
-                    "nome": nome.strip(),
-                    "sequencia": ""
-                })
-            else:
-                organismos[-1]["sequencia"] += line.rstrip()
+    nucleotideos = ["A", "T", "C", "G"]
+    for nucleotideo in nucleotideos:
+        percentual = organismo.sequencia.calcular_percentual(nucleotideo)
+        print(f"Percentual de {nucleotideo}: {percentual * 100:.2f}%")
 
-    return [OrganismoFasta(
-        id=organismo["id"],
-        nome=organismo["nome"],
-        sequencia=organismo["sequencia"],
-    ) for organismo in organismos]
+    percentual_GC = organismo.sequencia.calcular_percentual(["C", "G"])
+    print(f"Conteúdo GC: {percentual_GC * 100:.2f}%")
 
-sequences = [OrganismoFasta]
-
-# Especificar mutação
-mutacao_posicao = 1000
-nucleotideo_original = 'A'
-nucleotideo_mutado = 'G'
-
-# Verificar a mutação
-def verificar_mutacao(sequences, pos, original, mutado):
-    resultados = []
-    for seq in sequences:
-        if len(seq) > pos and seq[pos] == mutado:
-            resultados.append(True)
-        else:
-            resultados.append(False)
-    return resultados
-
-# Analisando as sequências
-resultados = verificar_mutacao(sequences, mutacao_posicao, nucleotideo_original, nucleotideo_mutado)
-print(resultados)
+    print()
