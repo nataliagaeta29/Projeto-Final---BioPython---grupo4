@@ -1,11 +1,11 @@
-from Sequencia import Sequencia
-from OrganismoFasta import OrganismoFasta
-from ler_fasta import ler_fasta
+import sys
 import os
 
-diretorio_arquivo = os.path.join("arquivos", "Flaviviridae-genomes.fasta")
+#add o diretório do projeto ao sys.path
+diretorio_arquivo = sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath("Flaviviridae-genomes.fasta"))))
 
 objetos_organismo = ler_fasta(diretorio_arquivo)
+from bio.ler_fasta import ler_fasta
 
 for organismo in objetos_organismo:
     print(f"Organismo: {organismo.id}")

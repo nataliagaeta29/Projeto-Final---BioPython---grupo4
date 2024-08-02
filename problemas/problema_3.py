@@ -1,12 +1,11 @@
 #Importando as funções
+import sys
 import os
-from Sequencia import Sequencia
-from OrganismoFasta import OrganismoFasta
-from ler_fasta import ler_fasta
 
-#Lendo o arquivo
-diretorio_arquivo = os.path.join("arquivos", "Flaviviridae-genomes.fasta")
+diretorio_arquivo = sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath("Flaviviridae-genomes.fasta"))))
+
 objetos_organismo = ler_fasta(diretorio_arquivo)
+from bio.ler_fasta import ler_fasta
 
 #Realizando a função
 for organismo in objetos_organismo:

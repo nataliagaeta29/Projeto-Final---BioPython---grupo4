@@ -22,7 +22,7 @@ class Sequencia:
         return self.sequencia.__getitem__(index)
     
     
-    def complementar(self):
+def complementar(self):
         complementar = {
             'A':'T', 
             'T':'A', 
@@ -31,12 +31,11 @@ class Sequencia:
             }
         sequencia_complementar = ""
 
-        for base in self.sequencia:
-            sequencia_complementar += complementar[base]
+        for base in self.sequencia
+        sequencia_complementar += complementar[base]
         return Sequencia(sequencia_complementar)
-    
-    
-    def reverso_complementar(self):
+
+def reverso_complementar(self):
         complementar = {
             'A':'T', 
             'T':'A', 
@@ -51,7 +50,7 @@ class Sequencia:
         return Sequencia(reverso_complemento)
     
 
-    def transcrever(self):  
+def transcrever(self):  
         transcrito = {
             'A':'U', 
             'T':'A', 
@@ -67,7 +66,7 @@ class Sequencia:
     
     
     
-    def traduzir(self, parar=False):
+def traduzir(self, parar=False):
         sequencia_traduzida = ""
 
         for i in range(0, len(self.sequencia), 3): #acessar os códons (igual no exercício em sala)
@@ -86,7 +85,7 @@ class Sequencia:
     
 
 
-    def calcular_percentual(self, bases): 
+def calcular_percentual(self, bases): 
         comprimento_sequencia = len(self.sequencia)
         percentual = {}
         
@@ -95,7 +94,4 @@ class Sequencia:
             percentual[base] = (contagem_base / comprimento_sequencia) * 100
         
         return percentual
-        
-
-
 

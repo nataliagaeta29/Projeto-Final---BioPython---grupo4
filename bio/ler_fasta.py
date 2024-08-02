@@ -1,24 +1,25 @@
 from bio.organismo_fasta import OrganismoFasta
 
 
-def ler_fasta(caminho_do_arquivo):
-    organismos = []
-
-    with open(caminho_do_arquivo) as file:
-        lines = file.readlines()
-        for line in lines:
-            if line[0] == ">":
-                id_organismo, nome = line[1:].rstrip().split("|")
-                organismos.append({
-                    "id": id_organismo.strip(),
-                    "nome": nome.strip(),
-                    "sequencia": ""
-                })
+def ler_fasta(arquivo):
+    objetos_organismo = []
+    with open(arquivo, "r") as file:
+        linhas = file.readlines()
+        id_ = None
+        nome = None
+        sequencia = ""
+        for linha in linhas:
+            linha = linha.strip()
+            if linha.startswith(">"):
+                if id_ and nome and sequencia:
+                    organismo = OrganismoFasta(id_, nome, sequencia)
+                    objetos_organismo.append(organismo)
+                id_ = linha[1:]
+                nome = linha[1:].split()[0]
+                sequencia = ""
             else:
-                organismos[-1]["sequencia"] += line.rstrip()
-
-    return [OrganismoFasta(
-        id=organismo["id"],
-        nome=organismo["nome"],
-        sequencia=organismo["sequencia"],
-    ) for organismo in organismos]
+                sequencia += linha
+        if id_ and nome and sequencia:
+            organismo = OrganismoFasta(id_, nome, sequencia)
+            objetos_organismo.append(organismo)
+    return objetos_organismo
