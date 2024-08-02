@@ -2,7 +2,10 @@ import sys
 import os
 
 #add o diretório do projeto ao sys.path
-diretorio_arquivo = sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from bio.ler_fasta import ler_fasta
+from bio.sequencia import Sequencia
+
 arquivo_fasta = 'arquivos/Flaviviridae-genomes.fasta'
 objetos_organismo = ler_fasta(arquivo_fasta)
 
