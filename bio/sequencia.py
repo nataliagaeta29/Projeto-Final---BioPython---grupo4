@@ -31,8 +31,8 @@ def complementar(self):
             }
         sequencia_complementar = ""
 
-        for base in self.sequencia
-        sequencia_complementar += complementar[base]
+        for base in self.sequencia:
+            sequencia_complementar += complementar[base]
         return Sequencia(sequencia_complementar)
 
 def reverso_complementar(self):

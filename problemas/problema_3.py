@@ -1,12 +1,12 @@
-#Importando as funções
+
 import sys
 import os
 
-# Adicionando o diretório raiz do projeto ao sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath("Flaviviridae-genomes.fasta"))))
-diretorio_arquivo = sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath("Flaviviridae-genomes.fasta"))))
+#add o diretório do projeto ao sys.path
+diretorio_arquivo = sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+arquivo_fasta = 'arquivos/Flaviviridae-genomes.fasta'
+objetos_organismo = ler_fasta(arquivo_fasta)
 
-objetos_organismo = ler_fasta(diretorio_arquivo)
 from bio.ler_fasta import ler_fasta
 
 #Realizando a função
