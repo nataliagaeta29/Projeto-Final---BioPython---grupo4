@@ -10,8 +10,6 @@ arquivo_fasta = './arquivos/Flaviviridae-genomes.fasta'
 objetos_organismo = ler_fasta(arquivo_fasta)
 
 
-from bio.ler_fasta import ler_fasta
-
 for organismo in objetos_organismo:
     print(f"Organismo: {organismo.id}")
 
